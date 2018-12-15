@@ -27,16 +27,22 @@ bool ofxRTTrPReceiver::update(){
     std::fill_n(udpMessage, messageSize, 0);   //clear array
     dataReceived.clear();
 
-    udpConnectionRx.Receive(udpMessage, messageSize);
-    string message = udpMessage;
+    string message = "";
     
-    if (message.size() > 1){
-        newMessage = true;
-
-        dataReceived.clear();
-        dataReceived.assign(udpMessage, udpMessage + sizeof(udpMessage) / sizeof(udpMessage[0]));
-        processData(dataReceived);
-    }
+    do{
+        udpConnectionRx.Receive(udpMessage, messageSize);
+        message = udpMessage;
+        if (message.size() > 1){
+            newMessage = true;
+            
+            dataReceived.clear();
+            dataReceived.assign(udpMessage, udpMessage + sizeof(udpMessage) / sizeof(udpMessage[0]));
+            processData(dataReceived);
+        }
+        
+    }while (message.size() > 1);
+    
+    
 
     return newMessage;
 }
