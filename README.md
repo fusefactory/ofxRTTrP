@@ -1,6 +1,6 @@
 # ofxRTTrP
 
-OpenFrameworks addon used to retrive data from [Real-Time Tracking Procol](https://rttrp.github.io/RTTrP-Wiki/index.html). This is the protocol used by [Blacktrax](https://Blacktrax.cast-soft.com/).
+OpenFrameworks addon used to retrieve data from [Real-Time Tracking Procol](https://rttrp.github.io/RTTrP-Wiki/index.html). This is the protocol used by [Blacktrax](https://Blacktrax.cast-soft.com/).
 
 For now it works only in main thread, but i think it is possible a multithread implementation  with a marked improvement in performance.
 
